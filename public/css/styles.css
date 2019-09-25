@@ -1,0 +1,137 @@
+input {
+    width: 100%;    /* keep the input width as width as possible */
+    border: 2px;
+    border-color: black;
+    border-style: solid;
+    padding: 5px;
+}
+
+.postNowPosts {
+    border: 2px;
+    border-color: black;
+    border-style: solid;
+    margin-left: 5px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    margin-right: 5px;
+    padding: 10px;
+}
+
+.feedTitle {
+    margin-top: 15px;
+}
+
+.erdiagramTitle {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.documentationTitle {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.postNowAvatarImg {
+    width: 80px;
+    height: 80px;
+}
+
+.ERDiagram {
+    display: block;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-margin {
+    margin: 0px 2px;
+}
+
+.form-border {
+    border: 5px;
+    color: black;
+}
+.name, .message, .title {
+    margin: 15px auto;
+    padding: 0 15px;
+}
+
+#messagetextfield {
+    height: 100px;
+}
+
+#messagetextarea {
+    width: 100%;
+    border: 2px;
+    border-color: black;
+    border-style: solid;
+    padding: 5px;
+}
+
+.mainPageContent {
+    overflow: hidden;
+    z-index: 1;
+    height: 415px;
+    background-color: #EADFFF;
+    position: relative;
+    display: block;
+}
+
+.mainPageContent h1 {
+    text-align: center;
+    color: #000000;
+    position: relative;
+    top: 40%;
+}
+
+.mainPageContentPhotos {
+    z-index: -1;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    height: 100%;
+}
+
+.pageTitleHeading {
+    text-align: center;
+    padding-top: 20px;
+}
+
+.form-check {
+    padding-left: 0 !important;
+}
+
+.mainPageContent .searchBarRestaurantContent {
+    position: relative;
+    top: 45%;
+    width: 30%;
+    margin: auto;
+}
+
+#searchRestaurant {
+    border: 0;
+}
+
+.homePageSearchButton {
+    background-color: plum;
+    color: white;
+    height: 40px;
+    width: 110px;
+    padding: 0;
+    border: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a.dropdown-toggle {
+    text-decoration: none;
+    color: black;
+    margin-left: 110px;
+}
+
+.logoutDropDownText {
+    margin-left: 10px;
+}
