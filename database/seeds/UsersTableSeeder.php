@@ -11,28 +11,21 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-            'name' => 'test rest',
-            'email' => 'testrest@gmail.com',
-            'password' => bcrypt('pass'),
-            'role' => 'restaurant',
-            'address' => 'test rest address'
-        ]);
 
         DB::table('users')->insert([
-            'name' => 'test cons',
-            'email' => 'testcons@gmail.com',
-            'password' => bcrypt('pass'),
             'role' => 'consumer',
-            'address' => 'test cons address'
+			'name' => 'jakeattard',
+			'email' => 'jake@gmail.com',
+			'address' => '1 Jake street GC',
+			'password' => bcrypt('admin123')
         ]);
-
+        
         DB::table('users')->insert([
-            'name' => 'admin',
-            'email' => 'admin@gmail.com',
-            'password' => bcrypt('admin'),
-            'role' => 'admin',
-            'address' => 'admin address'
-        ]);
+            'role' => 'restaurant',
+			'name' => 'burger king',
+			'email' => 'owner@burgerking.com',
+			'address' => '1 test street google',
+			'password' => bcrypt('admin123')
+		]);
     }
 }
