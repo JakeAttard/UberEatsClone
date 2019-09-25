@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Dish;
+use App\Product;
 
-class DishController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -25,7 +25,7 @@ class DishController extends Controller
      */
     public function create()
     {
-        return view('dish.create');
+        return view('product.create');
     }
 
     /**
@@ -40,15 +40,15 @@ class DishController extends Controller
         $this->validate($request, [
             'name' => 'required|max:255|unique:dishes',
             'price' => 'required|numeric|gt:0',
-            'rest' => 'exists:users,id',
+            'restaurant' => 'exists:users,id',
         ]);
 
-        $dish = new Dish();
-        $dish->name = $request->name;
-        $dish->price = $request->price;
-        $dish->user_id = $request->rest;
-        $dish->save();
-        return redirect('restaurant/'.$dish->user_id);
+        $product = new Product();
+        $product->name = $request->name;
+        $product->price = $request->price;
+        $product->user_id = $request->restaurant;
+        $product->save();
+        return redirect('restaurant/'.$product->user_id);
     }
 
     /**
@@ -70,8 +70,8 @@ class DishController extends Controller
      */
     public function edit($id)
     {
-        $dish = Dish::find($id);
-        return view('dish.edit')->with('dish',$dish);
+        $product = Product::find($id);
+        return view('product.edit')->with('product',$product);
     }
 
     /**
@@ -84,14 +84,14 @@ class DishController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'name' => 'required|max:255|unique:dishes',
+            'name' => 'required|max:255|unique:products',
             'price' => 'required|numeric|gt:0',
         ]);
 
-        $dish = Dish::find($id);
-        $dish->name = $request->name;
-        $dish->price = $request->price;
-        $dish->save();
+        $product = Product::find($id);
+        $product->name = $request->name;
+        $product->price = $request->price;
+        $product->save();
         return redirect('restaurant/'.$id);
     }
 
@@ -103,8 +103,8 @@ class DishController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-        $dish = Dish::find($id);
-        $dish->delete();
+        $product = Product::find($id);
+        $product->delete();
         return redirect('restaurant/'.$request->rest);
     }
 }

@@ -12,17 +12,13 @@
 */
 
 use App\User;
-use App\Dish;
-
-/*Route::get('/', function () {
-    return view('welcome');
-});*/
+use App\Product;
 
 Auth::routes();
 
-Route::resource('dish','DishController');
+Route::resource('product','ProductController');
 
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/restaurant/{id}', 'RestaurantController@show');
-Route::get('/newdish','DishController@create');
+Route::get('/newproduct','ProductController@create');

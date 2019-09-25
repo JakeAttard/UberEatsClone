@@ -51,7 +51,7 @@
                 @else
                     @if(Auth::user()->role == "restaurant")  
                         <li>
-                        <a class="nav-link" href="{{ url('/newdish') }}">{{ __('Add Dish') }}</a>
+                        <a class="nav-link" href="{{ url('/newproduct') }}">{{ __('Add Product') }}</a>
                         </li>
                     @endif
                     <li class="nav-item dropdown">

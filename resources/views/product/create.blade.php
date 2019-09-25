@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    Create Product
+@endsection
+
 @section('content')
     <div class="container">
     @if(count($errors) > 0)
@@ -12,7 +16,7 @@
         </div>
     @endif
     <h3>Create new dish for {{Auth::user()->name}}</h3>
-    <form method="POST" action="{{url('dish')}}">
+    <form method="POST" action="{{url('product')}}">
         {{csrf_field()}}
         <input name="rest" type="hidden" value="{{Auth::user()->id}}">
         <p><label>Name: </label><input type="text" name="name" value="{{old('name')}}" /></p>
