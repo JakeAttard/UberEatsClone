@@ -135,3 +135,7 @@ a.dropdown-toggle {
 .logoutDropDownText {
     margin-left: 10px;
 }
+
+.container {
+    max-width: 1245px;
+}
