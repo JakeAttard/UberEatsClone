@@ -17,16 +17,24 @@
     </div>
 
     <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+    <div class="row justify-content-left">
+        <div class="col-md-8" style="padding-top: 20px;">
             @foreach ($restaurants as $restaurant)
-                <div class="card">
+                <!-- <div class="card">
                     <div class="card-header"><a href="{{ url('/restaurant/'.$restaurant['id']) }}">{{$restaurant['name']}}</a></div>
                     <div class="card-body">
                         {{$restaurant['address']}}
                     </div>
-                </div>
+                </div> -->
 
+                <!-- NEW -->
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="{{asset('images/mcdonalds.jpg')}}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="{{ url('/restaurant/'.$restaurant['id']) }}">{{$restaurant['name']}}</a></h5>
+                        <p class="card-text">{{$restaurant['address']}}</p>
+                    </div>
+                </div>
             @endforeach
         </div>
     </div>
