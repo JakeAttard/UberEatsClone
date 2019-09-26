@@ -29,6 +29,9 @@
                     <a class="nav-link mr-4" href="{{url("documentation")}}">Documentation</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link mr-4" href="{{url("reflectionDocumentation")}}">Reflection</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link mr-4" href="{{url("erdiagram")}}">ERD Diagram</a>
                 </li>
             </ul>

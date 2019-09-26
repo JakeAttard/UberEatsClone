@@ -27,3 +27,8 @@ Route::get('/newproduct','ProductController@create');
 Route::get('documentation', function() {
     return view('pages.documentation');
 });
+
+// Reflection Document Page
+Route::get('reflectionDocumentation', function() {
+    return view('pages.reflectionDocumentation');
+});
