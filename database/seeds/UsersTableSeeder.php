@@ -90,6 +90,24 @@ class UsersTableSeeder extends Seeder
 			'email' => 'owner@subway.com',
 			'address' => '1 subway drive cres fake',
 			'password' => bcrypt('12345678')
+        ]);
+        
+        // Restaurant
+        DB::table('users')->insert([
+            'role' => 'restaurant',
+			'name' => 'Deep South Chicken',
+			'email' => 'owner@dsc.com',
+			'address' => '160 Old Pacific Highway Coomera',
+			'password' => bcrypt('12345678')
+        ]);
+        
+        // Restaurant
+        DB::table('users')->insert([
+            'role' => 'restaurant',
+			'name' => 'Zambrero Oxenford',
+			'email' => 'owner@zambrero.com',
+			'address' => ' Tenancy 3, Global Plaza, Oxenford',
+			'password' => bcrypt('12345678')
 		]);
     }
 }

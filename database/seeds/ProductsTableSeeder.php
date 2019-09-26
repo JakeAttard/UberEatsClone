@@ -204,5 +204,28 @@ class ProductsTableSeeder extends Seeder
             'user_id' => 9,
             'updated_at' => DB::raw('CURRENT_TIMESTAMP')
         ]);
+
+        // Deep South Chicken Products
+        DB::table('products')->insert([
+            'name' => 'Boneless Quarter',
+            'price' => '11.95',
+            'user_id' => 10,
+            'updated_at' => DB::raw('CURRENT_TIMESTAMP')
+        ]);
+
+        DB::table('products')->insert([
+            'name' => 'Bonless Half',
+            'price' => '14.95',
+            'user_id' => 10,
+            'updated_at' => DB::raw('CURRENT_TIMESTAMP')
+        ]);
+
+        // Zambrero Oxenford
+        DB::table('products')->insert([
+            'name' => 'Classic Burrito',
+            'price' => '16.00',
+            'user_id' => 11,
+            'updated_at' => DB::raw('CURRENT_TIMESTAMP')
+        ]);
     }
 }
