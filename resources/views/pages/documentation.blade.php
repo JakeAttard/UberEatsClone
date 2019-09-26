@@ -43,6 +43,6 @@
 
     <div class="postNowPosts">
         <strong><p>Github:</p></strong>
-        <p>PostNow public repository can be found <a href="https://github.com/JakeAttard/2703ICTAssignment1" target="blank">here</a>.</p>
+        <p>Uber Eats Clone public repository can be found <a href="https://github.com/JakeAttard/UberEatsClone" target="blank">here</a>.</p>
     </div>
 @endsection('content')

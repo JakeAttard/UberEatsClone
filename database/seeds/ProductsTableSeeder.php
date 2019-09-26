@@ -11,6 +11,7 @@ class ProductsTableSeeder extends Seeder
      */
     public function run()
     {
+        // Burger King Products
         DB::table('products')->insert([
             'name' => 'test rest dish 1',
             'price' => '10.00',
