@@ -22,3 +22,8 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/restaurant/{id}', 'RestaurantController@show');
 Route::get('/newproduct','ProductController@create');
+
+// Documentation Page
+Route::get('documentation', function() {
+    return view('pages.documentation');
+});

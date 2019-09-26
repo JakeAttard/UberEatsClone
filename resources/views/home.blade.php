@@ -20,14 +20,6 @@
     <div class="row">
         <div class="col-xl" style="padding-top: 20px;">
             @foreach ($restaurants as $restaurant)
-                <!-- <div class="card">
-                    <div class="card-header"><a href="{{ url('/restaurant/'.$restaurant['id']) }}">{{$restaurant['name']}}</a></div>
-                    <div class="card-body">
-                        {{$restaurant['address']}}
-                    </div>
-                </div> -->
-
-                <!-- NEW -->
                 <div class="card" style="width: 18rem; display:inline-block; margin-right: 10px; margin-top: 20px;">
                     <img class="card-img-top" src="{{asset('images/mcdonalds.jpg')}}" alt="Card image cap">
                     <div class="card-body">
