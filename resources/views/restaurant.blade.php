@@ -43,6 +43,10 @@
                         <h5 class="card-title"><a href="{{ url('/restaurant/'.$restaurant['id']) }}">{{$restaurant ->name}}</a></h5>
                         <p class="card-text">Dish Name : {{$product->name}}</p>
                         <p class="card-text">Price : {{$product -> price}}</p>
+                        @if((Auth::user()->id) != $restaurant->id)
+                            <button type="button" class="btn btn-primary" style="background-color: plum; border: none;">Add to Cart</button>
+                            <button type="button" class="btn btn-primary" style="background-color: #32AC71; border: none">Purchase</button>
+                        @endif
                     </div>
                 </div>
                 @if((Auth::user()->id) == $restaurant->id)
