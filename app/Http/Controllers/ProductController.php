@@ -92,7 +92,7 @@ class ProductController extends Controller
         $product->name = $request->name;
         $product->price = $request->price;
         $product->save();
-        return redirect('restaurant/'.$id);
+        return redirect('/restaurant/'.$product->user_id);
     }
 
     /**

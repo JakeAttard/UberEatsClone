@@ -56,7 +56,7 @@
                     </div>
                 </div>
                 @if((Auth::user()->id) == $restaurant->id)
-                    <a href="{{url('/product/'.$product['user_id'].'/edit')}}">edit dish</a>
+                    <a href="{{url('/product/'.$product['id'].'/edit')}}">Edit Product</a>
                     <form method="POST" action="{{ url('product/'.$product['id']) }}">
                         {{csrf_field()}}
                         {{method_field('DELETE')}}
