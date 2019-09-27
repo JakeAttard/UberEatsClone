@@ -44,8 +44,14 @@
                         <p class="card-text">Dish Name : {{$product->name}}</p>
                         <p class="card-text">Price : {{$product -> price}}</p>
                         @if((Auth::user()->id) != $restaurant->id)
-                            <button type="button" class="btn btn-primary" style="background-color: plum; border: none;">Add to Cart</button>
-                            <button type="button" class="btn btn-primary" style="background-color: #32AC71; border: none">Purchase</button>
+                            <button type="button" class="btn btn-primary" style="background-color: plum; border: none;">
+                                <img src="{{ asset('icons/noun_shopping.png') }}" alt="Add to Cart Icon" style="height: 20px; width: 16px; vertical-align: text-bottom;">
+                                Add to Cart
+                            </button>
+                            <button type="button" class="btn btn-primary" style="background-color: #32AC71; border: none">
+                                <img src="{{ asset('icons/noun_shop.png') }}" alt="Add to Cart Icon" style="height: 20px; width: 16px; vertical-align: text-bottom;">
+                                Purchase
+                            </button>
                         @endif
                     </div>
                 </div>
