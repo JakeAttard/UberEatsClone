@@ -63,7 +63,7 @@
                                 <input name = "product_price" value = "{{$product->price}}" hidden>
                                 <input name = "user_address" value = "{{Auth::user()->address}}" hidden>
                             <button type="submit" class="btn btn-primary" value="Order" style="background-color: #32AC71; border: none">
-                                <img src="{{ asset('icons/noun_shop.png') }}" alt="Add to Cart Icon" style="height: 20px; width: 16px; vertical-align: text-bottom;">
+                                <img src="{{ asset('icons/noun_shop.png') }}" alt="Purchase Icon" style="height: 20px; width: 16px; vertical-align: text-bottom;">
                                 Purchase
                             </button>
                             </form>

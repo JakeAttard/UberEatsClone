@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Session;
+
 use App\Product;
 use App\Order;
 use App\User;
@@ -32,8 +34,7 @@ class OrderController extends Controller
         $order->user_id = $request->user_id;
         $order->product_id = $request->product_id;
         $order->save();
-        $title = "".$request->product_name. " :$".$request->product_price."";
-        $address = "delivered to ->".$request->user_address."";
+
         return redirect('restaurant/'.$request->restaurant_id);
     }
 
