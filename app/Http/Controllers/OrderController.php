@@ -15,7 +15,11 @@ class OrderController extends Controller
     public function index()
     {
         if (!Auth::guest()) {
-            $orders = DB::table('products')->join('orders', 'orders.product_id', '=', 'products.id')->join('users', 'users.id', '=', 'orders.user_id')->whereRaw('products.user_id = ?', array(Auth::user()->id))->select('products.name as product', 'products.price as price', 'users.name as user', 'users.address as address', 'orders.created_at as time')->get();
+            $orders = DB::table('products')
+            ->join('orders', 'orders.product_id', '=', 'products.id')
+            ->join('users', 'users.id', '=', 'orders.user_id')
+            ->whereRaw('products.user_id = ?', array(Auth::user()->id))
+            ->select('products.name as product', 'products.price as price', 'users.name as user', 'users.address as address', 'orders.created_at as time')->get();
         } else {
             $orders = null;
         }
