@@ -6,7 +6,10 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\RegistersUsers;
+
+use Session;
 
 class RegisterController extends Controller
 {
@@ -38,6 +41,26 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+    }
+
+    public function showRegistrationForm()
+    {
+        $previous_url = Session::get('_previous.url');
+        $ref = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';
+        $ref = rtrim($ref, '/');
+        if ($previous_url != url('login')) {
+            Session::put('referrer', $ref);
+            if ($previous_url == $ref) {
+                Session::put('url.intended', $ref);
+            }
+        }
+
+        return view('auth.register');
+    }
+
+    protected function registered(Request $request, $user)
+    {
+        return redirect()->intended(Session::pull('referrer'));
     }
 
     /**
