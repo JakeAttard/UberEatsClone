@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Session;
-
+use Auth;
+use DB;
 use App\Product;
 use App\Order;
 use App\User;
@@ -14,7 +14,13 @@ class OrderController extends Controller
 {
     public function index()
     {
-        //
+        if (!Auth::guest()) {
+            $orders = DB::table('products')->join('orders', 'orders.product_id', '=', 'products.id')->join('users', 'users.id', '=', 'orders.user_id')->whereRaw('products.user_id = ?', array(Auth::user()->id))->select('products.name as product', 'products.price as price', 'users.name as user', 'users.address as address', 'orders.created_at as time')->get();
+        } else {
+            $orders = null;
+        }
+
+        return view('orders.index')->with('orders', $orders);
     }
 
     /**
@@ -35,7 +41,7 @@ class OrderController extends Controller
         $order->product_id = $request->product_id;
         $order->save();
 
-        return redirect('restaurant/'.$request->restaurant_id);
+        return redirect("orders/".$order->id);
     }
 
     /**
@@ -44,9 +50,16 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    // public function show($id)
-    // {
-    //     $order = Order::find($id);
-    //     return view('orders.show')->with('order', $order);
-    // }
+    public function show($id) {
+        if ($id > 0 && !Auth::guest()) {
+            $order = DB::table('products')->join('orders', 'orders.product_id', '=', 'products.id')->join('users', 'users.id', '=', 'orders.user_id')->whereRaw('orders.id =?', array($id))->select('products.name as product', 'products.price as price', 'users.name as user', 'users.address as address', 'orders.created_at as time', 'users.id as id')->first();
+
+            if ($order && $order->id != Auth::user()->id) {
+                $order = null;
+            } else {
+                $order = null;
+            }
+            return view('orders.show')->with('order', $order);
+        }
+    }
 }

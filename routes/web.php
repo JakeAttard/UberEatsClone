@@ -20,6 +20,7 @@ Auth::routes();
 Route::post('orders', 'OrderController@store')->name('OrderController.store');
 
 Route::resource('product','ProductController');
+Route::resource('orders', 'OrderController')->except(['store', 'edit', 'update', 'destroy']);
 
 Route::get('/', 'HomeController@index')->name('home');
 
