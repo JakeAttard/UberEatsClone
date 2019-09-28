@@ -51,19 +51,12 @@ class OrderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id) {
-        if ($id > 0 && !Auth::guest()) {
-            $order = DB::table('products')
-            ->join('orders', 'orders.product_id', '=', 'products.id')
-            ->join('users', 'users.id', '=', 'orders.user_id')
-            ->whereRaw('orders.id =?', array($id))
-            ->select('products.name as product', 'products.price as price', 'users.name as user', 'users.address as address', 'orders.created_at as time', 'users.id as id')->first();
+        $order = DB::table('products')
+        ->join('orders', 'orders.product_id', '=', 'products.id')
+        ->join('users', 'users.id', '=', 'orders.user_id')
+        ->whereRaw('orders.id = ?', array($id))
+        ->select('products.name as product', 'products.price as price', 'users.name as user', 'users.address as address', 'orders.created_at as time', 'users.id as id')->first();
 
-            if ($order && $order->id != Auth::user()->id) {
-                $order = null;
-            } else {
-                $order = null;
-            }
-            return view('orders.show')->with('order', $order);
-        }
+        return view('orders.show')->with('order', $order);
     }
 }
