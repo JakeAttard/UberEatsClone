@@ -8,6 +8,9 @@
 
     <div class="container" style="border:1px solid #cecece; padding-top: 20px; margin-top: 20px; text-align: center;">
         <div class="col-xl" style="padding-top: 20px; padding-bottom: 20px;">
+            <div class="alert alert-success" role="alert">
+                Your purchase has been successful! Here is your order details.
+            </div>
             @if ($order)
                 <div class="card" style="width: 18rem; display:inline-block; margin-right: 10px; margin-top: 20px;">
                     <img class="card-img-top" src="{{asset('images/mcdonalds.jpg')}}" alt="Card image cap">
