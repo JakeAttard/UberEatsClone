@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
+use App\Order;
+use App\User;
+
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
     public function index()
     {
-        $orders = Order::all();
-        return view('orders.index')->with('orders', $orders);
+        //
     }
 
     /**
@@ -23,16 +26,15 @@ class OrderController extends Controller
         $validatedData = $request->validate([
             'user_id' => 'required',
             'product_id' => 'required',
-            'completed' => 'required',
         ]);
 
         $order = new Order();
         $order->user_id = $request->user_id;
         $order->product_id = $request->product_id;
-        $order->completed = $request->completed;
-
         $order->save();
-        return redirect("orders/".$order->id);
+        $title = "".$request->product_name. " :$".$request->product_price."";
+        $address = "delivered to ->".$request->user_address."";
+        return redirect('restaurant/'.$request->restaurant_id);
     }
 
     /**
@@ -41,9 +43,9 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        $order = Order::find($id);
-        return view('orders.show')->with('order', $order);
-    }
+    // public function show($id)
+    // {
+    //     $order = Order::find($id);
+    //     return view('orders.show')->with('order', $order);
+    // }
 }

@@ -13,8 +13,11 @@
 
 use App\User;
 use App\Product;
+use App\Order;
 
 Auth::routes();
+
+Route::post('orders', 'OrderController@store')->name('OrderController.store');
 
 Route::resource('product','ProductController');
 

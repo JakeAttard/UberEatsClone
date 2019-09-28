@@ -44,14 +44,29 @@
                         <p class="card-text">Dish Name : {{$product->name}}</p>
                         <p class="card-text">Price : {{$product -> price}}</p>
                         @if((Auth::user()->id) != $restaurant->id)
-                            <button type="button" class="btn btn-primary" style="background-color: plum; border: none;">
+                            <!-- <button type="button" class="btn btn-primary" style="background-color: plum; border: none;">
                                 <img src="{{ asset('icons/noun_shopping.png') }}" alt="Add to Cart Icon" style="height: 20px; width: 16px; vertical-align: text-bottom;">
                                 Add to Cart
                             </button>
                             <button type="button" class="btn btn-primary" style="background-color: #32AC71; border: none">
                                 <img src="{{ asset('icons/noun_shop.png') }}" alt="Add to Cart Icon" style="height: 20px; width: 16px; vertical-align: text-bottom;">
                                 Purchase
+                            </button> -->
+                            
+
+                            <form method="POST" action="{{route('OrderController.store')}}">
+                                @csrf
+                                <input name = "user_id" value = "{{Auth::user()->id}}" hidden>
+                                <input name = "product_id" value = "{{$product->id}}" hidden>
+                                <input name = "restaurant_id" value="{{$product->user_id}}"hidden>
+                                <input name = "product_name" value = "{{$product->name}}" hidden>
+                                <input name = "product_price" value = "{{$product->price}}" hidden>
+                                <input name = "user_address" value = "{{Auth::user()->address}}" hidden>
+                            <button type="submit" class="btn btn-primary" value="Order" style="background-color: #32AC71; border: none">
+                                <img src="{{ asset('icons/noun_shop.png') }}" alt="Add to Cart Icon" style="height: 20px; width: 16px; vertical-align: text-bottom;">
+                                Purchase
                             </button>
+                            </form>
                         @endif
                     </div>
                 </div>
