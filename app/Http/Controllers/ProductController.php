@@ -38,7 +38,7 @@ class ProductController extends Controller
     {
 
         $this->validate($request, [
-            'name' => 'required|max:255|unique:products',
+            'name' => 'required|max:255|unique:products,name,NULL,id,user_id,'.$request->user_id,
             'price' => 'required|numeric|gt:0',
             'restaurant' => 'exists:users,id',
         ]);
