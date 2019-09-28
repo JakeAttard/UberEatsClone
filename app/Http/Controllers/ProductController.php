@@ -83,12 +83,13 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $product = Product::find($id);
+
         $this->validate($request, [
-            'name' => 'required|max:255|unique:products',
+            'name' => 'required|max:255|unique:products,name,NULL,id,user_id,'.$request->user_id . $product->name,
             'price' => 'required|numeric|gt:0',
         ]);
 
-        $product = Product::find($id);
         $product->name = $request->name;
         $product->price = $request->price;
         $product->save();
