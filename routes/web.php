@@ -36,3 +36,8 @@ Route::get('documentation', function() {
 Route::get('reflectionDocumentation', function() {
     return view('pages.reflectionDocumentation');
 });
+
+// Popular Products
+Route::get('popularProducts', function() {
+    return view('product.popularProducts');
+});

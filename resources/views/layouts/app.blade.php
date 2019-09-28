@@ -42,6 +42,9 @@
                         <a class="nav-link" href="{{ url('/') }}">{{ __('Restaurants') }}</a>
                     </li>
                     <li>
+                        <a class="nav-link" href="{{ url('popularProducts') }}">{{ __('Popular Products') }}</a>
+                    </li>
+                    <li>
                         <button style="background-color: white; border: none; color: rgba(0,0,0,.5);">
                             <img src="{{ asset('icons/noun_cart.png') }}" alt="Add to Cart Icon" style="height: 30px; width: 30px; vertical-align: text-bottom;">
                             Cart
