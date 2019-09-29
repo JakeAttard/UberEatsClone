@@ -67,7 +67,7 @@
                         {{csrf_field()}}
                         {{method_field('DELETE')}}
                         <input name="rest" type="hidden" value="{{ $product['user_id'] }}">
-                        <input type="submit" value="delete" style="background-color: red; color: white; border: none;" />
+                        <input type="submit" value="Delete" style="background-color: red; color: white; border: none;" />
                     </form>
                 @endif
             @empty
