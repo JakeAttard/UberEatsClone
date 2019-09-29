@@ -144,7 +144,7 @@ class ProductsTableSeeder extends Seeder
 
         // KFC Products
         DB::table('products')->insert([
-            'name' => 'Zinger Stacker Combo',
+            'name' => 'Zinger Stacker',
             'price' => '18.00',
             'image' => 'uploads/images/mcdonalds.jpg',
             'user_id' => 7,
