@@ -13,6 +13,7 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    // Index function not used.
     public function index()
     {
         //
@@ -23,6 +24,8 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    // Products create function which is returning the product.create view.
     public function create()
     {
         return view('product.create');
@@ -34,6 +37,8 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+     // Products store function is storing the product name, price and restaurant id for all new products created.
     public function store(Request $request)
     {
 
@@ -57,6 +62,8 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    // Products show function wasn't used for the ProductController.
     public function show($id)
     {
         //
@@ -68,6 +75,8 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    // Products edit function is returning the products.edit view. This for when restuarant users want to edit their product.
     public function edit($id)
     {
         $product = Product::find($id);
@@ -81,6 +90,8 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    // Product update function is updating the edited products into the DB. This can either be the product name or price.
     public function update(Request $request, $id)
     {
 
@@ -103,6 +114,8 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    // Destory function is used to delete a product.
     public function destroy(Request $request, $id)
     {
         $product = Product::find($id);

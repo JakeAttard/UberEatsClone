@@ -14,7 +14,6 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        //$this->middleware('auth');
     }
 
     /**
@@ -22,6 +21,8 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
+    // Index function for the HomeController is returning all the restaurants created with the role 'restaurant'.
     public function index()
     {
         $restaurants = User::where('role', 'restaurant')->get()->toArray();
