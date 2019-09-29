@@ -35,6 +35,11 @@ Route::get('documentation', function() {
     return view('pages.documentation');
 });
 
+// ERD Page
+Route::get('erdiagram', function() {
+    return view('pages.erdiagram');
+});
+
 // Reflection Document Page
 Route::get('reflectionDocumentation', function() {
     return view('pages.reflectionDocumentation');
