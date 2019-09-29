@@ -134,4 +134,14 @@ class ProductController extends Controller
         $product->delete();
         return redirect('restaurant/'.$request->rest);
     }
+
+    // Function popularProducts to get the top 5 most popular products ordered in the last 30 days
+    public function popularProducts() {
+        $products = DB::table('products')
+        ->join('orders', 'orders.product_id', '=', 'products.id')
+        ->whereDate('orders.created_at', '>', date('c', strtotime('-30 days')))
+        ->select('products.*')->groupBy('products.id')->orderByRaw('count(products.id) desc')->get();
+
+        return view('products.popularProducts')->with('products', $products->slice(0, 5));
+    }
 }

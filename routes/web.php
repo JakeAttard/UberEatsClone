@@ -18,6 +18,7 @@ use App\Order;
 Auth::routes();
 
 Route::post('orders', 'OrderController@store')->name('OrderController.store');
+Route::get('products', 'ProductController@popularProducts')->name('ProductController.popularProducts');
 
 Route::resource('product','ProductController');
 Route::resource('orders', 'OrderController')->except(['store', 'edit', 'update', 'destroy']);

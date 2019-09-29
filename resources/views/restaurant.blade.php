@@ -14,7 +14,6 @@
         <div class="col-xl" style="padding-top: 20px; padding-bottom: 20px;">
             @forelse($products as $product)
                 <div class="card" style="width: 18rem; display:inline-block; margin-right: 10px; margin-top: 20px;">
-                    <!-- <img class="card-img-top" src="{{asset('images/mcdonalds.jpg')}}" alt="Card image cap"> -->
                     <img class="card-img-top" src="{{ asset($product->image) }}" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title"><a href="{{ url('/restaurant/'.$restaurant['id']) }}">{{$restaurant ->name}}</a></h5>
