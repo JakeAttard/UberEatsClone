@@ -6,6 +6,7 @@
 
 @section('content')
     <div class="documentationTitle">
-        <h3>ERD Diagram</h3>
+        <h3>Entity Relationship Diagram</h3>
     </div>
+    <img src="{{ asset('images/erdiagram.png') }}" class="ERDiagram" alt="ERDiagram">
 @endsection('content')
