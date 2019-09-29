@@ -6,6 +6,8 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+// User Class
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -42,6 +44,7 @@ class User extends Authenticatable
         return $this->hasMany('App\Products');
     }
 
+    // Returning all orders
     function orders() {
         return $this->belongsToMany('App\Product', 'orders')->with('name', 'address')->orderBy('id', 'desc');
     }

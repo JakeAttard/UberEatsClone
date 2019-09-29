@@ -16,6 +16,7 @@ class RestaurantController extends Controller
         return view('restaurant')->with('products',$products)->with('restaurant',$restaurant);
     }
 
+    // Showing Restaurant stats such as total amount
     public function stats($id) {
         $restaurant = User::find($id);
         $orders = $restaurant->orders;

@@ -11,6 +11,7 @@ use App\User;
 
 class OrderController extends Controller
 {
+    // Index Function
     public function index($id) {
         $restaurant = User::find($id);
         $orders = $restaurant->orders;
@@ -23,6 +24,7 @@ class OrderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    // Store function -> Storing all the information of the Order into the DB
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -44,6 +46,8 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    // show function is showing all the orders completed
     public function show($id) {
         $order = DB::table('products')
         ->join('orders', 'orders.product_id', '=', 'products.id')

@@ -41,6 +41,8 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
+
+    // Showing LoginForm
     public function showLoginForm()
     {
         $view = property_exists($this, 'loginView')
@@ -74,6 +76,8 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
+
+     // Checking if the user was Authenicated
     protected function handleUserWasAuthenticated(Request $request, $throttles)
     {
         if ($throttles) {
@@ -82,9 +86,7 @@ class LoginController extends Controller
         if (method_exists($this, 'authenticated')) {
             return $this->authenticated($request, Auth::guard($this->getGuard())->user());
         }
-        /*return to the previous page*/
         return redirect()->intended(Session::pull('referrer'));
-//        return redirect()->intended($this->redirectPath()); /*Larevel default*/
     }
 
 }
