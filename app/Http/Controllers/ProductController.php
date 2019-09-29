@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 use App\Product;
 
@@ -45,6 +46,7 @@ class ProductController extends Controller
         $this->validate($request, [
             'name' => 'required|max:255|unique:products,name,NULL,id,user_id,'.$request->user_id,
             'price' => 'required|numeric|gt:0',
+            'image' => 'image',
             'restaurant' => 'exists:users,id',
         ]);
 
@@ -52,6 +54,16 @@ class ProductController extends Controller
         $product->name = $request->name;
         $product->price = $request->price;
         $product->user_id = $request->restaurant;
+        
+        // Storing the image
+        if ($request->has('image')) {
+            $image = $request->file('image');
+            $name = Str::slug($request->input('name')).'_'.time();
+            $filePath = '/uploads/images/'.$name.'.'.$image->getClientOriginalExtension();
+            $image->storeAs('/uploads/images/', $name.'.'.$image->getClientOriginalExtension(), 'public');
+            $product->image = $filePath;
+        }
+
         $product->save();
         return redirect('restaurant/'.$product->user_id);
     }

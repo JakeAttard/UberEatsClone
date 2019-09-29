@@ -14,7 +14,8 @@
         <div class="col-xl" style="padding-top: 20px; padding-bottom: 20px;">
             @forelse($products as $product)
                 <div class="card" style="width: 18rem; display:inline-block; margin-right: 10px; margin-top: 20px;">
-                    <img class="card-img-top" src="{{asset('images/mcdonalds.jpg')}}" alt="Card image cap">
+                    <!-- <img class="card-img-top" src="{{asset('images/mcdonalds.jpg')}}" alt="Card image cap"> -->
+                    <img class="card-img-top" src="{{ asset($product->image) }}" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title"><a href="{{ url('/restaurant/'.$restaurant['id']) }}">{{$restaurant ->name}}</a></h5>
                         <p class="card-text">Dish Name : {{$product->name}}</p>
@@ -38,22 +39,12 @@
         <div class="col-xl" style="padding-top: 20px; padding-bottom: 20px;">
             @forelse($products as $product)
                 <div class="card" style="width: 18rem; display:inline-block; margin-right: 10px; margin-top: 20px;">
-                    <img class="card-img-top" src="{{asset('images/mcdonalds.jpg')}}" alt="Card image cap">
+                    <img class="card-img-top" src="{{ asset($product->image) }}" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title"><a href="{{ url('/restaurant/'.$restaurant['id']) }}">{{$restaurant ->name}}</a></h5>
                         <p class="card-text">Dish Name : {{$product->name}}</p>
                         <p class="card-text">Price : {{$product -> price}}</p>
                         @if((Auth::user()->id) != $restaurant->id)
-                            <!-- <button type="button" class="btn btn-primary" style="background-color: plum; border: none;">
-                                <img src="{{ asset('icons/noun_shopping.png') }}" alt="Add to Cart Icon" style="height: 20px; width: 16px; vertical-align: text-bottom;">
-                                Add to Cart
-                            </button>
-                            <button type="button" class="btn btn-primary" style="background-color: #32AC71; border: none">
-                                <img src="{{ asset('icons/noun_shop.png') }}" alt="Add to Cart Icon" style="height: 20px; width: 16px; vertical-align: text-bottom;">
-                                Purchase
-                            </button> -->
-                            
-
                             <form method="POST" action="{{route('OrderController.store')}}">
                                 @csrf
                                 <input name = "user_id" value = "{{Auth::user()->id}}" hidden>
