@@ -106,7 +106,43 @@ class UsersTableSeeder extends Seeder
             'role' => 'restaurant',
 			'name' => 'Zambrero Oxenford',
 			'email' => 'owner@zambrero.com',
-			'address' => ' Tenancy 3, Global Plaza, Oxenford',
+			'address' => 'Tenancy 3, Global Plaza, Oxenford',
+			'password' => bcrypt('12345678')
+        ]);
+
+        // Restaurant
+        DB::table('users')->insert([
+            'role' => 'restaurant',
+			'name' => 'Jacks Kebabs',
+			'email' => 'owner@jk.com',
+			'address' => '170 Old Pacific Highway Oxenford',
+			'password' => bcrypt('12345678')
+        ]);
+
+        // Restaurant
+        DB::table('users')->insert([
+            'role' => 'restaurant',
+			'name' => 'Carls Jr Pimpama',
+			'email' => 'owner@cjp.com',
+			'address' => '27 Dixon Drive Pimpama',
+			'password' => bcrypt('12345678')
+        ]);
+
+        // Restaurant
+        DB::table('users')->insert([
+            'role' => 'restaurant',
+			'name' => 'Guzman Y Gomez',
+			'email' => 'owner@gyg.com',
+			'address' => 'J/1 Commercial St Coomera',
+			'password' => bcrypt('12345678')
+        ]);
+
+        // Restaurant
+        DB::table('users')->insert([
+            'role' => 'restaurant',
+			'name' => 'Royal Kebabs Fish & Chips',
+			'email' => 'shop@rkfc.com',
+			'address' => '27 Dixon Drive Pimpama',
 			'password' => bcrypt('12345678')
         ]);
         

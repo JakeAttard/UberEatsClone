@@ -257,5 +257,71 @@ class ProductsTableSeeder extends Seeder
             'user_id' => 11,
             'updated_at' => DB::raw('CURRENT_TIMESTAMP')
         ]);
+
+        // Jacks Kebabs
+        DB::table('products')->insert([
+            'name' => 'Meat Kebab',
+            'price' => '12.00',
+            'image' => 'uploads/images/mcdonalds.jpg',
+            'user_id' => 12,
+            'updated_at' => DB::raw('CURRENT_TIMESTAMP')
+        ]);
+
+        // Carls Jr Pimpama
+        DB::table('products')->insert([
+            'name' => 'Original Angus Burger',
+            'price' => '15.00',
+            'image' => 'uploads/images/mcdonalds.jpg',
+            'user_id' => 13,
+            'updated_at' => DB::raw('CURRENT_TIMESTAMP')
+        ]);
+
+        DB::table('products')->insert([
+            'name' => 'Western Bacon Burger',
+            'price' => '16.00',
+            'image' => 'uploads/images/mcdonalds.jpg',
+            'user_id' => 13,
+            'updated_at' => DB::raw('CURRENT_TIMESTAMP')
+        ]);
+
+        DB::table('products')->insert([
+            'name' => 'Portobello Mushroom',
+            'price' => '18.00',
+            'image' => 'uploads/images/mcdonalds.jpg',
+            'user_id' => 13,
+            'updated_at' => DB::raw('CURRENT_TIMESTAMP')
+        ]);
+
+        DB::table('products')->insert([
+            'name' => 'Hawaiian Burger',
+            'price' => '20.00',
+            'image' => 'uploads/images/mcdonalds.jpg',
+            'user_id' => 13,
+            'updated_at' => DB::raw('CURRENT_TIMESTAMP')
+        ]);
+
+        DB::table('products')->insert([
+            'name' => 'Big Burger',
+            'price' => '10.00',
+            'image' => 'uploads/images/mcdonalds.jpg',
+            'user_id' => 13,
+            'updated_at' => DB::raw('CURRENT_TIMESTAMP')
+        ]);
+
+        DB::table('products')->insert([
+            'name' => 'Big Carl Burger',
+            'price' => '12.00',
+            'image' => 'uploads/images/mcdonalds.jpg',
+            'user_id' => 13,
+            'updated_at' => DB::raw('CURRENT_TIMESTAMP')
+        ]);
+
+        DB::table('products')->insert([
+            'name' => 'BBQ Chicken',
+            'price' => '15.00',
+            'image' => 'uploads/images/mcdonalds.jpg',
+            'user_id' => 13,
+            'updated_at' => DB::raw('CURRENT_TIMESTAMP')
+        ]);
     }
 }
