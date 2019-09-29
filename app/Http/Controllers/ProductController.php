@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 use App\Product;
@@ -141,7 +143,6 @@ class ProductController extends Controller
         ->join('orders', 'orders.product_id', '=', 'products.id')
         ->whereDate('orders.created_at', '>', date('c', strtotime('-30 days')))
         ->select('products.*')->groupBy('products.id')->orderByRaw('count(products.id) desc')->get();
-
-        return view('products.popularProducts')->with('products', $products->slice(0, 5));
+        return view('product.popularProducts')->with('products', $products->slice(0, 5));
     }
 }

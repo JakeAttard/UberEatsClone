@@ -42,7 +42,7 @@
                         <a class="nav-link" href="{{ url('/') }}">{{ __('Restaurants') }}</a>
                     </li>
                     <li>
-                        <a class="nav-link" href="{{ url('popularProducts') }}">{{ __('Popular Products') }}</a>
+                        <a class="nav-link" href="{{ url("popularProducts") }}">{{ __('Popular Products') }}</a>
                     </li>
                     <li>
                         <button style="background-color: white; border: none; color: rgba(0,0,0,.5);">
