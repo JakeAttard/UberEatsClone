@@ -108,6 +108,51 @@ class UsersTableSeeder extends Seeder
 			'email' => 'owner@zambrero.com',
 			'address' => ' Tenancy 3, Global Plaza, Oxenford',
 			'password' => bcrypt('12345678')
-		]);
+        ]);
+        
+        // Consumer
+        DB::table('users')->insert([
+            'role' => 'consumer',
+			'name' => 'luke',
+			'email' => 'luke@gmail.com',
+			'address' => '1 luke street GC',
+			'password' => bcrypt('12345678')
+        ]);
+
+        // Consumer
+        DB::table('users')->insert([
+            'role' => 'consumer',
+			'name' => 'Josh',
+			'email' => 'josh@gmail.com',
+			'address' => '1 josh street GC',
+			'password' => bcrypt('12345678')
+        ]);
+
+        // Consumer
+        DB::table('users')->insert([
+            'role' => 'consumer',
+			'name' => 'Mary',
+			'email' => 'mary@gmail.com',
+			'address' => '1 mary street GC',
+			'password' => bcrypt('12345678')
+        ]);
+
+        // Consumer
+        DB::table('users')->insert([
+            'role' => 'consumer',
+			'name' => 'lucy',
+			'email' => 'lucy@gmail.com',
+			'address' => '1 lucy street GC',
+			'password' => bcrypt('12345678')
+        ]);
+
+        // Consumer
+        DB::table('users')->insert([
+            'role' => 'consumer',
+			'name' => 'rob',
+			'email' => 'rob@gmail.com',
+			'address' => '1 Rob street GC',
+			'password' => bcrypt('12345678')
+        ]);
     }
 }
