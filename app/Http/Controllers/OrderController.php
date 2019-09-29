@@ -2,29 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use Auth;
 use DB;
 use App\Product;
 use App\Order;
 use App\User;
 
-use Illuminate\Http\Request;
-
 class OrderController extends Controller
 {
-    public function index()
-    {
-        if (!Auth::guest()) {
-            $orders = DB::table('products')
-            ->join('orders', 'orders.product_id', '=', 'products.id')
-            ->join('users', 'users.id', '=', 'orders.user_id')
-            ->whereRaw('products.user_id = ?', array(Auth::user()->id))
-            ->select('products.name as product', 'products.price as price', 'users.name as user', 'users.address as address', 'orders.created_at as time')->get();
-        } else {
-            $orders = null;
-        }
-
-        return view('orders.index')->with('orders', $orders);
+    public function index($id) {
+        $restaurant = User::find($id);
+        $orders = $restaurant->orders;
+        return view('orders.index')->with('restaurant',$restaurant)->with('orders',$orders);
     }
 
     /**
@@ -60,7 +50,6 @@ class OrderController extends Controller
         ->join('users', 'users.id', '=', 'orders.user_id')
         ->whereRaw('orders.id = ?', array($id))
         ->select('products.name as product', 'products.price as price', 'users.name as user', 'users.address as address', 'orders.created_at as time', 'users.id as id')->first();
-
         return view('orders.show')->with('order', $order);
     }
 }

@@ -65,8 +65,11 @@
                             <a class="nav-link" href="{{ url('/newproduct') }}">{{ __('Add Product') }}</a>
                             </li>
                             <li>
-                            <a class="nav-link" href="{{ url('/orders/index') }}">{{ __('Orders') }}</a>
+                                <a class="nav-link" href="{{ url('/restaurant/'.Auth::user()->id.'/orders') }}">{{ __('View Orders') }}</a>
                             </li>
+                            <li>
+                                <a class="nav-link" href="{{ url('/restaurant/'.Auth::user()->id.'/stats') }}">{{ __('View Statistics') }}</a>
+                            </li> 
                         @endif
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

@@ -15,4 +15,11 @@ class RestaurantController extends Controller
         $restaurant = User::find($id);
         return view('restaurant')->with('products',$products)->with('restaurant',$restaurant);
     }
+
+    public function stats($id) {
+        $restaurant = User::find($id);
+        $orders = $restaurant->orders;
+        $total_price = $orders->sum('price');
+        return view('stats')->with('restaurant',$restaurant)->with('total',$total_price);
+    }
 }

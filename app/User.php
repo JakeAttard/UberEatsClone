@@ -41,4 +41,8 @@ class User extends Authenticatable
     function products() {
         return $this->hasMany('App\Products');
     }
+
+    function orders() {
+        return $this->belongsToMany('App\Product', 'orders')->with('name', 'address')->orderBy('id', 'desc');
+    }
 }

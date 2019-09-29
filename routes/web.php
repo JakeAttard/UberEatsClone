@@ -17,15 +17,18 @@ use App\Order;
 
 Auth::routes();
 
-Route::post('orders', 'OrderController@store')->name('OrderController.store');
-
 Route::resource('product','ProductController');
 Route::resource('orders', 'OrderController')->except(['store', 'edit', 'update', 'destroy']);
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/order/{id}', 'OrderController@show');
+Route::get('/restaurant/{id}/orders', 'OrderController@index');
 Route::get('/restaurant/{id}', 'RestaurantController@show');
 Route::get('/newproduct','ProductController@create');
+Route::get('/restaurant/{id}/stats', 'RestaurantController@stats');
 Route::get('popularProducts', 'ProductController@popularProducts')->name('ProductController.popularProducts');
+
+Route::post('orders', 'OrderController@store')->name('OrderController.store');
 
 // Documentation Page
 Route::get('documentation', function() {
