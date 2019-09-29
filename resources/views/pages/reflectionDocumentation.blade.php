@@ -22,7 +22,8 @@
             As a result of the peer review experience I personally found it better helping a student if they had a coding issue or a certain question than 
             showing and explaining my code. To help improve my peer review experience with fellow students adding more comments in my code to help explain
             certain functions and why I went down that certain path to achieve the task. From doing these changes it helped optimised my peer-review experience
-            and hopefully the people I reviewed.
+            and hopefully the people I reviewed. As a result of this I personally found the peer review a positive experience which gave me the ability to show
+            and explaun the tasks I had completed with peers.
         </p>
     </div>
 @endsection('content')
