@@ -62,12 +62,12 @@
                     </div>
                 </div>
                 @if((Auth::user()->id) == $restaurant->id)
-                    <a href="{{url('/product/'.$product['id'].'/edit')}}">Edit Product</a>
+                    <a class="btn btn-primary" href="{{url('/product/'.$product['id'].'/edit')}}" style="display: block; margin-top: 20px; margin-bottom: 20px; border: none;">Edit Product</a>
                     <form method="POST" action="{{ url('product/'.$product['id']) }}">
                         {{csrf_field()}}
                         {{method_field('DELETE')}}
                         <input name="rest" type="hidden" value="{{ $product['user_id'] }}">
-                        <input type="submit" value="delete" />
+                        <input type="submit" value="delete" style="background-color: red; color: white; border: none;" />
                     </form>
                 @endif
             @empty
